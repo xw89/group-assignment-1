@@ -55,4 +55,6 @@ sigma_th=sqrt(2*D*tsnap)
 sigma_exp=para[:,2]
 plot(sigma_th,sigma_exp,'ro')
 plot([0.8*min(sigma_th),1.1*max(sigma_th)],[0.8*min(sigma_th),1.1*max(sigma_th)],'b--') # line of y=x (to compare sigma_th and sigma_exp)
+xlabel('sqrt(2Dt)')
+ylabel('sigma')
 fig2.savefig('C:\\Users\\Xinyu Wu\\Desktop\\566\\my work\\group_assignment_1\\sigma.pdf')
