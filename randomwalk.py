@@ -33,20 +33,20 @@ for i in range(100): # if random [0,0.25),x+1; if  [0.25,0.5),x-1; if [0.5,0.75)
         else:
             x[k][i+1]=x[k][i]
             y[k][i+1]=y[k][i]-1
-        xsq[k][i]=(x[k][i])**2
-        ysq[k][i]=(y[k][i])**2
-    xav[i]=sum(x[:,i])/10000
-    yav[i]=sum(y[:,i])/10000
-    xsqav[i]=sum(xsq[:,i])/10000
-    ysqav[i]=sum(ysq[:,i])/10000
-    rsqav[i]=xsqav[i]+ysqav[i]
+        xsq[k][i+1]=(x[k][i+1])**2
+        ysq[k][i+1]=(y[k][i+1])**2
+    xav[i+1]=sum(x[:,i+1])/10000
+    yav[i+1]=sum(y[:,i+1])/10000
+    xsqav[i+1]=sum(xsq[:,i+1])/10000
+    ysqav[i+1]=sum(ysq[:,i+1])/10000
+    rsqav[i+1]=xsqav[i+1]+ysqav[i+1]
 """
 part a, figure for x_n and x_n^2
 """
 t=range(101)
 fig1=plt.figure()
-plot(t,xav,'ro')
-plot(t,xsqav,'gx')
+plot(t,xav,'gx')
+plot(t,xsqav,'ro')
 xlabel('Steps')
 ylabel('x and x^2')
 legend(['x_n average','x^2_n average'])
@@ -59,5 +59,5 @@ fig2=plt.figure()
 plot(t,rsqav,'ro')
 xlabel('Steps')
 ylabel('Distance^2')
-fig2.savefig('C:\\Users\\Xinyu Wu\\Desktop\\566\\my work\\group_assignment_1\\rwxn.pdf') # path in my computer
+fig2.savefig('C:\\Users\\Xinyu Wu\\Desktop\\566\\my work\\group_assignment_1\\rwrnsq.pdf') # path in my computer
 
