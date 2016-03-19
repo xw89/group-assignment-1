@@ -9,3 +9,5 @@ diffusion_ani.py is the animation code of the diffusion process. diffusion.mp4 i
 dla.py is a first code for Problem 3 and dla.pdf is runout.
 
 dla_ani.py is the animation code for the growing process. 
+
+P3_b is the code for fractional dimension extraction and mass_vs_R.pdf & fractional_dimension.pdf are the runout. Note Nmax need to be inctreased for better accuracy.
