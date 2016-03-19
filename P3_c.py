@@ -105,16 +105,30 @@ for j in range(10):
     # save the slope
     Df_vals[j] = slope
 
-    # plot mass dimention
-    figure(1)
-    loglog(rr, fit, 'r-',label=('Linear fit (slope = ' + '{0:.2f}'.format(slope) + ')'))
-    loglog(rr, Mass, 'ko',label='m(r) data')
-    plt.axis([10, 10**2, 10**2, 10**4])
-    plt.legend(loc='upper right')
-    plt.xlabel('r')
-    plt.ylabel('m(r)')
-    plt.title("Mass of a DLA cluster within a disk of radius r")
-    savefig('mass_vs_R_'+str(j+1)+'.pdf')
+    # plot mass dimension
+    # figure(1)
+    # loglog(rr, fit, 'r-',label=('Linear fit (slope = ' + '{0:.2f}'.format(slope) + ')'))
+    # loglog(rr, Mass, 'ko',label='m(r) data')
+    # plt.axis([10, 10**2, 10**2, 10**4])
+    # plt.legend(loc='upper right')
+    # plt.xlabel('r')
+    # plt.ylabel('m(r)')
+    # plt.title("Mass of a DLA cluster within a disk of radius r")
+    # savefig('mass_vs_R_'+str(j+1)+'.pdf')
+    # plt.clf()
+
+    # plot clusters
+    figure()
+    print "Ploting..."
+    for ii in range(2*R):
+    	for jj in range(2*R):
+    		if P[ii,jj]==1 :
+    			plot(ii, jj, '.b')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('DLA cluster ' + str(j+1) )
+    plt.savefig('dla_' +str(j)+'.pdf')
+    print 'Saved ' + 'dla_' +str(j)+'.pdf'
     plt.clf()
 
 # end loop
@@ -122,4 +136,5 @@ for j in range(10):
 ################################################################################
 
 print Df_vals # print out the values for Df
-print sum(Df_vals) / float(len(Df_vals)) # print mean value
+print 'Avg Df: '+ str(sum(Df_vals) / float(len(Df_vals))) # print mean value
+print 'standard deviation: '+str(std(asarray(Df_vals))) # print standard deviation
