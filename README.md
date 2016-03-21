@@ -16,4 +16,7 @@ P3_c is the code for (c)--it runs the code of (b) 10 times and calculates the me
 	- Run on my computer I got: Df =  1.56 +/- 09  
 	- Output is dla_0.pdf, dla_1.pdf, ... dla_9.pdf are the 10 cluster grown (four representative clusters were uploaded)
 	- 
+
 GP_Assignment_A_1st.tex is draft 1 of the latex document, combined with revsymb4-1.sty and revtex4-1.cls. GP_Assignment_A_1st.pdf is the generated pdf file.
+
+GP_Assignment_A_2nd.tex is draft 2 of latex document. Problem 1 is finished.
