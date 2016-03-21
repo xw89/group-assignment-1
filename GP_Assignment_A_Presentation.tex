@@ -1,0 +1,185 @@
+\documentclass{beamer}
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} 
+\usetheme{Boadilla}
+
+\usepackage{graphicx}
+\usepackage{multimedia}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Fix the footer
+
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Random Walk, Diffusion, and Cluster Growth}
+
+
+\author{Xinyu Wu, Peifan Liu, Connor Hann, and Xiaomeng Jia}
+\institute[] {Physics Department, Duke University}
+
+
+\pgfdeclareimage[height=0.5cm]{university-logo}{duke_logo}
+\logo{\pgfuseimage{university-logo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{2D Random Walk}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{One-dimensional random walks}
+
+\begin{frame}{1D Random Walk}
+
+RMS distance of an ensemble of random walkers after $n$ steps
+\begin{equation}
+	\sqrt{<x_n^2>} = \sqrt{\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}<\Delta x_i\Delta x_j>} = \sqrt{n}\Delta x
+\end{equation} 
+
+Diffusive motion:
+\begin{equation}
+	<x^2(t)> = 2Dt
+\end{equation}
+where $D = v\cdot\Delta x/2 = (\Delta x)^2/(2\Delta t)$ is the diffusion constant.
+
+\end{frame}
+
+\subsection{Two-dimensional random walks}
+
+\begin{frame}{2D Random Walk (1)}
+
+Diffusive motion:
+\begin{equation}
+	<r^2(t)> = 2Dt
+\end{equation}
+Where $D = (\Delta x)^2/(4\Delta t)$.
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{rwxn.pdf}
+	%\caption{$ <x(t)> $ and  $ <x^2(t)> $ in 1D random walking, averaging over a 10000 random walker ensemble.}
+\end{figure}
+	
+
+\end{frame}
+
+\begin{frame}{2D Random Walk (2)}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{rwxn2.pdf}
+  	\includegraphics[width=0.5\textwidth]{rwxn3.pdf}
+\end{figure}
+	
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Diffusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Mathematical background}
+
+\begin{frame}{Diffusion}
+
+Background on diffusion
+
+One-dimensional normal distribution
+\begin{equation}
+	\rho(x,t) = \frac{1}{\sqrt{2 \pi \, \sigma(t)^2}} \, \text{exp} \left( - \frac{x^2}{2\sigma(t)^2} \right)
+\end{equation}
+
+\end{frame}
+
+\subsection{Numerical results}
+
+\begin{frame}{Diffusion Movie}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Crystal Growth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Background}
+
+\begin{frame}{Crystal Growth with Diffusion Limited Aggregation (DLA)}
+
+Background on DLA method
+
+\end{frame}
+
+\begin{frame}{Example DLA cluster}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{dla.pdf}
+\end{figure}
+
+\end{frame}
+
+\subsection{Fractal Dimension}
+
+\begin{frame}{Fractal Dimension $D_f$}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{mass_vs_R.pdf}
+\end{figure}
+
+Average value over 10 runs: $D_f = 1.56(09)$\\
+Expected value: $D_f  = $
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{thebibliography}{99}
+
+% e.g.
+%\bibitem{ref:Johnson28}
+%J.~B.~Johnson, Phy. Rev. 32, 1 (1928).
+
+%\end{thebibliography}
+
+
+\end{document}
+
+

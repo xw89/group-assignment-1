@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{2D Random Walk}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{One-dimensional random walks}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Two-dimensional random walks}{4}{0}{1}
+\beamer@sectionintoc {2}{Diffusion}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Mathematical background}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Numerical results}{7}{0}{2}
+\beamer@sectionintoc {3}{Crystal Growth}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{Background}{8}{0}{3}
+\beamer@subsectionintoc {3}{2}{Fractal Dimension}{10}{0}{3}
