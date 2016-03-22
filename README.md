@@ -22,3 +22,5 @@ GP_Assignment_A_1st.tex is draft 1 of the latex document, combined with revsymb4
 GP_Assignment_A_2nd.tex is draft 2 of latex document. Problem 1 is finished.
 
 GP_Assignment_A_Presentation.tex and associated files are the presentation. Problem 1 mostly done, 2 and 3 need more work.
+
+GP_Assignment_A_3rd.tex has all 3 problems written, in need of abstract and/or conclusion.
