@@ -15,7 +15,7 @@ T = 150
 N = int(L/dx)
 step = int(T/dt)
 x = linspace(-L,L,2*N+1)
-density = np.zeros([step+1, 2*N+1)
+density = np.zeros([step+1, 2*N+1])
 # box profile for the 11 points nearest to the origin at t=0
 for i in range(N-5,N+5):
     density[0][i] = 1
