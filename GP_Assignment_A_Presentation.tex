@@ -125,7 +125,12 @@ One-dimensional normal distribution
 
 \subsection{Numerical results}
 
-\begin{frame}{Diffusion Movie}
+\begin{frame}{Diffusion time dependence}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diffusion.pdf}
+\end{figure}
 
 
 \end{frame}
@@ -140,7 +145,19 @@ One-dimensional normal distribution
 
 \begin{frame}{Crystal Growth with Diffusion Limited Aggregation (DLA)}
 
-Background on DLA method
+DLA Method:
+
+\begin{enumerate}
+
+\item Consider a lattice of points with a seed particle at the origin
+
+\item Release a particle from a random location a distance $R$ from the origin
+
+\item Let the particle perform a random walk until it hits the perimeter of the cluster or strays too far
+
+\item Repeat for a large number of particles, e.g. 10,000
+
+\end{enumerate}
 
 \end{frame}
 
@@ -155,15 +172,15 @@ Background on DLA method
 
 \subsection{Fractal Dimension}
 
-\begin{frame}{Fractal Dimension $D_f$}
+\begin{frame}{Fractal Dimension $d_f$}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{mass_vs_R.pdf}
 \end{figure}
 
-Average value over 10 runs: $D_f = 1.56(09)$\\
-Expected value: $D_f  = $
+Average value over 10 runs: $d_f = 1.56(09)$\\
+Expected value: $d_f  = 1.65$
 
 \end{frame}
 
