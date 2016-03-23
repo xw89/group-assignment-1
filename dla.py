@@ -5,11 +5,10 @@ from random import *
 
 R = 100			#radius
 P = zeros([2*R+1, 2*R+1])	#2D array to plot
-Nmax = 10000			#max steps
+Nmax = 20000			#max steps
 k = 0
 P[R,R] = 1			#origin is one
 while k < Nmax:
-	r = R*random()
 	theta = 2*pi*random()
 	xt = int(R + R*cos(theta))
 	yt = int(R + R*sin(theta))
@@ -20,22 +19,22 @@ while k < Nmax:
 			right = 1
 			xt = xt + 1
 			if xt > 2*R :
-				xt = xt - R
+				break
 		elif p < 0.5:
 			left = 1
 			xt = xt - 1
 			if xt < 0 :
-				xt = xt + R
+				break
 		elif p < 0.75:
 			up = 1
 			yt = yt + 1
 			if yt > 2*R :
-				yt = yt - R
+				break
 		else :
 			down = 1
 			yt = yt - 1
 			if yt < 0 :
-				yt = yt + R	
+				break	
 		if (xt-R)**2+(yt-R)**2>R**2:		#out of the circle
 			continue
 		###################################
