@@ -5,6 +5,6 @@
 \beamer@sectionintoc {2}{Diffusion}{6}{0}{2}
 \beamer@subsectionintoc {2}{1}{Mathematical background}{6}{0}{2}
 \beamer@subsectionintoc {2}{2}{Numerical results}{9}{0}{2}
-\beamer@sectionintoc {3}{Crystal Growth}{10}{0}{3}
+\beamer@sectionintoc {3}{Cluster Growth}{10}{0}{3}
 \beamer@subsectionintoc {3}{1}{Background}{10}{0}{3}
 \beamer@subsectionintoc {3}{2}{Fractal Dimension}{13}{0}{3}

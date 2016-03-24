@@ -148,7 +148,7 @@
 	\date{\today}
 	
 	\begin{abstract}
-		In this article,  
+		In this article three different yet related problems and their physical analogs are considered: the two-dimensional random walk, diffusion in one and two dimensions, and cluster growth. For each problem the underlying mathematics is presented and stochastic algorithms are introduced to model the processes. Several interesting conclusions may be drawn from these algorithms. For example, we numerically verify the mathematical equivalence of random walks and diffusion, and we are able to quantify the fractal dimensionality of clusters grown through the diffusion-limited aggregation (DLA) method. The results of these numerical investigations are applicable to a wide variety of physical processes ranging from the diffusion of organic molecules to dielectric breakdown. 
 	\end{abstract}
 	
 	\maketitle
@@ -185,27 +185,28 @@
 	Where $D = (\Delta x)^2/(4\Delta t)$.
 	
 	This argument can be verified numerically using Python. We write a program to simulate a random walker in 2 dimensions, taking steps
-	of unit length in $\pm x$ or $\pm y$ direction on a discrete square lattice. For up to $n = 100$, by averaging over $10^4$ different walks for each $n > 3$, the expected value of the position $ <x> $ is zero at all time, and the mean square value  $ <x^2> $ has a linear relation with $n$(remember $n =t/\Delta t$ is proportional to $t$), as can be seen in Fig.1. A typical 2D random walking pattern is show in Fig.2. Since we choose $\Delta t = \Delta x = 1$ here, the diffusion constant is determined using the slope of $<r^2(t)>$ and $n$(see Fig.3):$D = 1/4$. 
+	of unit length in $\pm x$ or $\pm y$ direction on a discrete square lattice. For up to $n = 100$, by averaging over $10^4$ different walks for each $n > 3$, the expected value of the position $ <x> $ is zero at all time, and the mean square value  $ <x^2> $ has a linear relation with $n$(remember $n =t/\Delta t$ is proportional to $t$), as can be seen in Fig.1. A typical 2D random walking pattern is show in Fig.2. Since we choose $\Delta t = \Delta x = 1$ here, the diffusion constant is determined using the slope of $<r^2(t)>$ and $n$ (see Fig.3): $D = 1/4$. 
 	
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1.0\textwidth]{rwxn.pdf}
+			\includegraphics[width=0.8\textwidth]{rwxn.pdf}
 			\caption{$ <x(t)> $ and  $ <x^2(t)> $ in 1D random walking, averaging over a 10000 random walker ensemble.}
 		\end{figure}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1.0\textwidth]{rwxn3.pdf}
+				\includegraphics[width=0.8\textwidth]{rwxn3.pdf}
 				\caption{A tipical 2D random walking pattern, starting from (0,0).}
 			\end{figure}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1.0\textwidth]{rwxn2.pdf}
+			\includegraphics[width=0.8\textwidth]{rwxn2.pdf}
 			\caption{$<r^2(t)>$ in 2D random walking, averaging over a 10000 random walker ensemble.}
 		\end{figure}
+		
 
 	
 	\section{2. Diffusion Equation}
-	In this problem we aim to simulate the diffusion of one substance diffusion in another(sugar in water for instance). Diffusion will start from a box profile with a peak at origin and 10 grid around and diffuse in 1 dimension. We will found out the diffusion will approximate Gaussian distribution at later times and fit will be preformed to verify that $\sigma=\sqrt{2Dt}$ for several snapshot t.
+	In this problem we aim to simulate the diffusion of one substance in another (sugar in water for instance). Diffusion will start from a box profile with a peak at origin and 10 grid around and diffuse in 1 dimension. We will found out the diffusion will approximate Gaussian distribution at later times and fit will be preformed to verify that $\sigma=\sqrt{2Dt}$ for several snapshot t.
 
 \begin{enumerate}
 \item First of all we will show analytically that the spatial expectation $\langle x(t)^2\rangle$ of the 1D normal distribution 
@@ -235,6 +236,8 @@ If we discretize time and position to $t=k\Delta t, x=i\Delta x$, we can get the
 \end{equation}
 here we used $\Delta t=0.002s, \Delta x=0.1m, D=2$. The relation $\Delta t=\frac{\Delta x^2}{2D}$ is satisfied to guarantee convergence.
 
+\end{enumerate}
+
 Then, with the initial distribution given, all future state can be solved. We here will solve the equation for 150s and take snapshot at 30s, 60s, 90s, 120s and 150s. Gaussian fit is applied to these snapshot to verify $\sigma=\sqrt{2Dt}$. Plots for the 5 snapshots and fitted Gaussian are shown in Fig. \ref{fig:diffusion1}.
 \begin{figure}[H]
 \centering
@@ -242,7 +245,6 @@ Then, with the initial distribution given, all future state can be solved. We he
 \caption{Snapshots at 30s, 60s, 90s, 120s, 150s and comparison with fitted curve}
 \label{fig:diffusion1}
 \end{figure}
-
 As for the Gaussian fit, we used the function curve\_fit from scipy.optimize. We first define the Gaussian function with input of $x, \mu, \sigma$ and call it in the function \_fit to get the optimized $\sigma$ the comparison of $\sigma$ with $\sqrt{2Dt}$ are shown in Fig. \ref{fig:diffusion2}.
 \begin{figure}[H]
 \centering
@@ -250,10 +252,7 @@ As for the Gaussian fit, we used the function curve\_fit from scipy.optimize. We
 \caption{Comparison of $\sigma$ and $\sqrt{2Dt}$, the blue dashed line is $y=x$.}\label{fig:diffusion2}
 \end{figure}
 
-\textbf{\textit{Discussion}}
-
-In this problem, we used the diffusion equation to simulate the diffusion of a initial distribution of a peak(spread out a few grid) and we find that the distribution tend to approximate Gaussian distribution. We also find that the spatial spread expectation $\langle x(t)^2\rangle=2Dt$ increase linearly with time.
-\end{enumerate}
+Thus we have used the diffusion equation to simulate the diffusion of a initial distribution of a peak (spread out a few grid) and we find that the distribution tend to approximate Gaussian distribution. We also find that the spatial spread expectation $\langle x(t)^2\rangle=2Dt$ increases linearly with time.
 
 	\section{3. Cluster Growth with the DLA model}
 
@@ -262,15 +261,15 @@ Diffusion-limited aggregation (DLA) is the process whereby particles undergoing 
 The implementation of DLA using Python involves the following steps:\\
 1. consider a lattice of points;\\
 2. start with a seed particle at origin;\\
-3. release a particle at a randomly chosen location some distance(here we choose 100 units) from the cluster, let it perform a random walk;\\
-4. judge: if the particle stray too far away (here we set 200) from the original, it is thrown away; if the particle reach a perimeter site(i.e., all the unoccupied sites that are nearest neighbor to occupied sites), it becomes part of cluster;\\
-5. repeat 3-4 multiple times(here we set 10,000 particles).\\
+3. release a particle at a randomly chosen location some distance (here we choose 100 units) from the cluster, let it perform a random walk;\\
+4. judge: if the particle stray too far away from the original, it is thrown away; if the particle reaches a perimeter site (i.e., all the unoccupied sites that are nearest neighbor to occupied sites), it becomes part of cluster;\\
+5. repeat 3-4 until the cluster reaches the desired size.\\
 
 Typical clusters grown using DLA method are very sparse, i.e., they contain many open spaces and have very irregular perimeters, as can be seen in Fig.~\ref{cluster} and~\ref{more_clusters}. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{dla.pdf}
+	\includegraphics[width=0.8\textwidth]{dla.pdf}
 	\caption{Cluster grown using DLA method. }
 	\label{cluster}
 \end{figure}
@@ -286,15 +285,18 @@ Typical clusters grown using DLA method are very sparse, i.e., they contain many
 \end{figure}
 
 
-Next we want to extract the fractal dimension of the cluster by plotting the ``mass'' (how many points a cluster contains) as a function of its radius. The fractal dimensionality $d_f$ is defined as:
+We may quantify how sparse these clusters are by considering their fractal dimension, which may be extracted by plotting the ``mass'' (how many points a cluster contains) as a function of its radius. The fractal dimensionality $d_f$ is defined as:
 \begin{equation}
 m(r) \sim r^{d_f}
 \end{equation}
-
-In the 2D case, the largest dimensionality comes from the most compact geometry---a uniform disk: $d_f(disk) = 2$. A line, by comparison, has $d_f(line) = 1$. The $d_f$ for DLA cluster will fall in between the two. By counting the points inside various radii $r$, then determining the slope of $\text{log}(r)\text{ vs. }\text{log}(m)$ graph, one can calculate the value of $d_f$. This procedure is illustrated in Fig.~\ref{df}. In order to obtain a more accurate $d_f$ value, we calculated $d_f$ for 10 distinct DLA clusters and averaged the results. These results are shown in Table~\ref{df_table}. From these results we calculate $d_f =1.68\pm 0.7$, which is in excellent agreement with the literature value of $d_f = 1.65$.
+In the 2D case, the largest dimensionality comes from the most compact geometry---a uniform disk: $d_f(\text{disk}) = 2$. A line, by comparison, has $d_f(\text{line}) = 1$. The $d_f$ for DLA cluster will fall in between the two. By counting the points inside various radii $r$, then determining the slope of $\text{log}(r)\text{ vs. }\text{log}(m)$ graph, one can calculate the value of $d_f$.
+\begin{equation}
+\frac{\text{log}(m) }{\text{log}(r)} \sim d_f
+\end{equation}
+ This procedure is illustrated in Fig.~\ref{df}. In order to obtain an accurate $d_f$ value, we calculated $d_f$ for 10 distinct DLA clusters and averaged the results. These results are shown in Table~\ref{df_table}. From these results we calculate $d_f =1.68\pm 0.7$, which is in excellent agreement with the literature value of $d_f = 1.65$.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{mass_vs_R.pdf}
+	\includegraphics[width=0.8\textwidth]{mass_vs_R.pdf}
 	\caption{Extraction of $d_f$ from the relation of the cluster ``mass'' and radius.}
 	\label{df}
 \end{figure}
@@ -313,7 +315,13 @@ Cluster & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
 \end{center}
 \end{table}
  
-	
+ 
+ \section{Conclusion}
+ 
+The above sections demonstrate the incredible versatility of stochastic algorithms; one can write algorithms to model random walks and diffusion processes, allowing one to obtain numerical estimates for quantities like the diffusion constant $D$. The estimates that we obtain via our algorithms are in excellent agreement with what may be predicted from the mathematical theory. 
+
+The ideas and insights gained from our modeling of random walks and diffusion were then used to model cluster growth using the DLA method, which has a variety of physical analogs. Using the numerical results we were able to determine the fractal dimensionality of the DLA clusters with relative ease---determining $d_f$ analytically is certainly a much more daunting task. Thus, stochastic algorithms hold an incredibly important place in modern research, for they allow us to probe systems that may be analytically intractable.
+ 
 \end{document}
 	
 	%
