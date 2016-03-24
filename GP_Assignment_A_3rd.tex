@@ -48,6 +48,7 @@
 \usepackage{setspace}
 \usepackage{bm}
 \usepackage{float}
+\usepackage[caption = false]{subfig}
 
 \newcommand{\ssint}{ - \!\!\!\!\! \int }
 \def\sint{\ifmmode{- \!\!\!\!\!\! \int}
@@ -265,50 +266,52 @@ The implementation of DLA using Python involves the following steps:\\
 4. judge: if the particle stray too far away (here we set 200) from the original, it is thrown away; if the particle reach a perimeter site(i.e., all the unoccupied sites that are nearest neighbor to occupied sites), it becomes part of cluster;\\
 5. repeat 3-4 multiple times(here we set 10,000 particles).\\
 
-Typical clusters grown using DLA method are very sparse, i.e., they contain many open spaces and have very irregular perimeters, as can be seen in Fig.6-10. 
-\begin{enumerate}
-\item
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=1.0\textwidth]{dla.pdf}
-			\caption{DLA Cluster.}
-		\end{figure}
-\item
-\item
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=1.0\textwidth]{dla_0.pdf}
-			\caption{DLA cluster 1.}
-		\end{figure}
-				\begin{figure}[H]
-			\centering
-			\includegraphics[width=1.0\textwidth]{dla_1.pdf}
-			\caption{DLA cluster 2.}
-		\end{figure}
-				\begin{figure}[H]
-			\centering
-			\includegraphics[width=1.0\textwidth]{dla_2.pdf}
-			\caption{DLA cluster 3.}
-		\end{figure}
-				\begin{figure}[H]
-			\centering
-			\includegraphics[width=1.0\textwidth]{dla_3.pdf}
-			\caption{DLA cluster 4.}
-		\end{figure}
-\end{enumerate}
+Typical clusters grown using DLA method are very sparse, i.e., they contain many open spaces and have very irregular perimeters, as can be seen in Fig.~\ref{cluster} and~\ref{more_clusters}. 
 
-Next we want to extract the fractal dimension of the cluster by plotting the "mass"(how many points it has) vs. its radius. The dimensionality $d_f$ is defined as:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{dla.pdf}
+	\caption{Cluster grown using DLA method. }
+	\label{cluster}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat{\includegraphics[width = 0.5\textwidth]{dla_0}}
+	\subfloat{\includegraphics[width = 0.5\textwidth]{dla_1}}\\
+	\subfloat{\includegraphics[width = 0.5\textwidth]{dla_2}}
+	\subfloat{\includegraphics[width = 0.5\textwidth]{dla_3}}
+	\caption{Other typical clusters grown using the DLA method}
+	\label{more_clusters} 
+\end{figure}
+
+
+Next we want to extract the fractal dimension of the cluster by plotting the ``mass'' (how many points a cluster contains) as a function of its radius. The fractal dimensionality $d_f$ is defined as:
 \begin{equation}
 m(r) \sim r^{d_f}
 \end{equation}
 
-In the 2D case, the largest dimensionality comes from the most compact geometry - a uniform disk: $d_f(disk) = 2$. The $d_f$ for DLA cluster will be far smaller. By counting the points inside various radius $r$ and averaging over 10 clusters, we can get the value of $d_f \simeq 1.65\pm 0.9$ from the slope of $log(m) vs. log(r)$. One of the averaging result is shown in Fig.11.
+In the 2D case, the largest dimensionality comes from the most compact geometry---a uniform disk: $d_f(disk) = 2$. A line, by comparison, has $d_f(line) = 1$. The $d_f$ for DLA cluster will fall in between the two. By counting the points inside various radii $r$, then determining the slope of $\text{log}(r)\text{ vs. }\text{log}(m)$ graph, one can calculate the value of $d_f$. This procedure is illustrated in Fig.~\ref{df}. In order to obtain a more accurate $d_f$ value, we calculated $d_f$ for 10 distinct DLA clusters and averaged the results. These results are shown in Table~\ref{df_table}. From these results we calculate $d_f =1.68\pm 0.7$, which is in excellent agreement with the literature value of $d_f = 1.65$.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{mass_vs_R.pdf}
-	\caption{Extraction of $d_f$ from the relation of the cluster "mass" and radius.}
+	\caption{Extraction of $d_f$ from the relation of the cluster ``mass'' and radius.}
+	\label{df}
 \end{figure}
 
+\begin{table}[H]
+\caption{Computed $d_f$ values for 10 different DLA clusters}
+\label{df_table}
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+Cluster & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+\hline
+ $d_f$& 1.74 & 1.63 & 1.77 & 1.55 & 1.66 & 1.58 & 1.64 & 1.74 & 1.74 & 1.75 \\ 
+ \hline
+\end{tabular}
+\end{center}
+\end{table}
  
 	
 \end{document}
