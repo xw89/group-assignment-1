@@ -7,4 +7,4 @@
 \beamer@subsectionintoc {2}{2}{Numerical results}{7}{0}{2}
 \beamer@sectionintoc {3}{Crystal Growth}{8}{0}{3}
 \beamer@subsectionintoc {3}{1}{Background}{8}{0}{3}
-\beamer@subsectionintoc {3}{2}{Fractal Dimension}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{Fractal Dimension}{11}{0}{3}

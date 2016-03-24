@@ -4,7 +4,8 @@
 \usetheme{Boadilla}
 
 \usepackage{graphicx}
-\usepackage{multimedia}
+\usepackage[caption = false]{subfig}
+\usepackage{float}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -170,16 +171,44 @@ DLA Method:
 
 \end{frame}
 
+\begin{frame}{Typical clusters}
+
+\begin{figure}[H]
+	\centering
+	\subfloat{\includegraphics[width = 0.4\textwidth]{dla_0}}
+	\subfloat{\includegraphics[width = 0.4\textwidth]{dla_1}}\\
+	\subfloat{\includegraphics[width = 0.4\textwidth]{dla_2}}
+	\subfloat{\includegraphics[width = 0.4\textwidth]{dla_3}} 
+\end{figure}
+
+\end{frame}
+
 \subsection{Fractal Dimension}
 
-\begin{frame}{Fractal Dimension $d_f$}
+\begin{frame}{Fractal Dimension $d_f$ (1)}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{mass_vs_R.pdf}
 \end{figure}
 
-Average value over 10 runs: $d_f = 1.56(09)$\\
+\end{frame}
+
+\begin{frame}{Fractal Dimension $d_f$ (2)}
+
+
+\begin{center}
+\small
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+Cluster & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+\hline
+ $d_f$& 1.74 & 1.63 & 1.77 & 1.55 & 1.66 & 1.58 & 1.64 & 1.74 & 1.74 & 1.75 \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+Average value over 10 runs: $d_f = 1.68(07)$\\
 Expected value: $d_f  = 1.65$
 
 \end{frame}
