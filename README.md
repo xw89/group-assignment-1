@@ -18,4 +18,4 @@ P3_c is the code for 3c--it grows 10 clusters and caluclates df for each.
 
 GP_Assignment_A_3rd.pdf is the final document.
 
-GP_Assignment_A_Presentation.pdf is the final presentation document.
+GP_Assignment_A_Presentation_2.pdf is the final presentation document.
