@@ -2,11 +2,13 @@
 
 \newcommand{\nologo}{\setbeamertemplate{logo}{}} 
 \usetheme{Boadilla}
-
+\usepackage{color}
 \usepackage{graphicx}
 \usepackage[caption = false]{subfig}
 \usepackage{float}
-\usepackage{hyperref}
+\usepackage[english]{babel}
+\usepackage{media 9}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -137,14 +139,14 @@ One-dimensional normal distribution
 \end{equation}
 \end{frame}
 
-
 \begin{frame}{Animation}
 \begin{center}
-\href{run:./diffusion.mp4}{
-\includegraphics[scale=0.65]{initial.pdf}}
+\includemedia[
+    activate=onclick,
+    width=0.75\textwidth
+]{\includegraphics{diffusion.png}}{diffusion.swf}
 \end{center}
 \end{frame}
-
 
 \subsection{Numerical results}
 
@@ -154,23 +156,23 @@ One-dimensional normal distribution
 	\centering
 	\includegraphics[width=0.8\textwidth]{diffusion.pdf}
 \end{figure}
-\begin{equation}
+\begin{equation*}
 \langle x^2\rangle=\sigma(t)^2=2Dt
-\end{equation}
+\end{equation*}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Cluster Growth}
+\section{Crystal Growth}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Background}
 
-\begin{frame}{Cluster Growth with Diffusion Limited Aggregation (DLA)}
+\begin{frame}{Crystal Growth with Diffusion Limited Aggregation (DLA)}
 
-DLA Method:
+DLA Algorithm:
 
 \begin{enumerate}
 
@@ -180,9 +182,11 @@ DLA Method:
 
 \item Let the particle perform a random walk until it hits the perimeter of the cluster or strays too far
 
-\item Repeat until cluster reaches the desired size
+\item Repeat until the cluster reaches the edge of the circle(Radius=100)
+
 \end{enumerate}
 
+\textcolor{red}{Animation}
 \end{frame}
 
 \begin{frame}{Example DLA cluster}
@@ -209,11 +213,6 @@ DLA Method:
 \subsection{Fractal Dimension}
 
 \begin{frame}{Fractal Dimension $d_f$ (1)}
-
-\begin{align}
-m(r) &\sim r^{d_f} \nonumber \\
-\text{log}(m)  &= d_f \text{log}(r) \nonumber
-\end{align}
 
 \begin{figure}[H]
 	\centering
