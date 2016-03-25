@@ -180,17 +180,19 @@
 	If we generalize the deduction to the 2D case, where the random walkers can move one step in four diections ($\pm x, \pm y$) with equal probability, we can find that the motion is again diffusive, by evaluating the mean square distance:
 	
 	\begin{equation}
-	<r^2(t)> = 2Dt
+	<x^2(t)> = <y^2(t)> = \frac{<r^2(t)>}{2}= 2Dt
 	\end{equation}
-	Where $D = (\Delta x)^2/(4\Delta t)$.
+	Where $D = (\Delta x)^2/(2\Delta t)$.
 	
 	This argument can be verified numerically using Python. We write a program to simulate a random walker in 2 dimensions, taking steps
-	of unit length in $\pm x$ or $\pm y$ direction on a discrete square lattice. For up to $n = 100$, by averaging over $10^4$ different walks for each $n > 3$, the expected value of the position $ <x> $ is zero at all time, and the mean square value  $ <x^2> $ has a linear relation with $n$(remember $n =t/\Delta t$ is proportional to $t$), as can be seen in Fig.1. A typical 2D random walking pattern is show in Fig.2. Since we choose $\Delta t = \Delta x = 1$ here, the diffusion constant is determined using the slope of $<r^2(t)>$ and $n$ (see Fig.3): $D = 1/4$. 
+	of unit length in $\pm x$ or $\pm y$ direction on a discrete square lattice. For up to $n = 100$, by averaging over $10^4$ different walks for each $n > 3$, the expected value of the position $ <x> $ is zero at all time, and the mean square value  $ <x^2> $ has a linear relation with $n$(remember $n =t/\Delta t$ is proportional to $t$), as can be seen in Fig.1. A typical 2D random walking pattern is show in Fig.2. Since we choose $\Delta t = \Delta x = 1$ here, the diffusion constant is determined using the slope of $<r^2(t)>$ and $n$ (see Fig.3): $D = 1/2$.
+	
+	If we set biased probabilities ($ 0.4$ for moving up, $0.1$ for moving down, $0.4$ for moving right, $0.1$ for moving left), then $ <x> $ is no longer zero but  $ <x> = 0.3t $, and $<x^2(t)>$ shows transition towards the free particle motion: $<x^2(t)> = t^2$, as shown in Fig.4.
 	
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{rwxn.pdf}
-			\caption{$ <x(t)> $ and  $ <x^2(t)> $ in 1D random walking, averaging over a 10000 random walker ensemble.}
+			\caption{$ <x(t)> $ and  $ <x^2(t)> $ components in 2D random walking, averaging over a 10000 random walker ensemble.}
 		\end{figure}
 			\begin{figure}[H]
 				\centering
@@ -200,13 +202,18 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{rwxn2.pdf}
-			\caption{$<r^2(t)>$ in 2D random walking, averaging over a 10000 random walker ensemble.}
+			\caption{$<r^2(t)> = <x^2(t)> + <y^2(t)>$ in 2D random walking, averaging over a 10000 random walker ensemble.}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{rwxn_2.pdf}
+			\caption{Biased 2D random walking, averaging over a 10000 random walker ensemble. $<x^2(t)>$ shows transition towards the free particle motion.}
 		\end{figure}
 		
 
 	
 	\section{2. Diffusion Equation}
-	In this problem we aim to simulate the diffusion of one substance in another (sugar in water for instance). Diffusion will start from a box profile with a peak at origin and 10 grid around and diffuse in 1 dimension. We will found out the diffusion will approximate Gaussian distribution at later times and fit will be preformed to verify that $\sigma=\sqrt{2Dt}$ for several snapshot t.
+	The random walking process is mathmatically equivalent to the diffusion problem. In this section we aim to simulate the diffusion of one substance in another (sugar in water for instance). Diffusion will start from a box profile with a peak at origin and 10 grid around and diffuse in 1 dimension. We will found out the diffusion will approximate Gaussian distribution at later times and fit will be preformed to verify that $\sigma=\sqrt{2Dt}$ for several snapshot t.
 
 \begin{enumerate}
 \item First of all we will show analytically that the spatial expectation $\langle x(t)^2\rangle$ of the 1D normal distribution 
